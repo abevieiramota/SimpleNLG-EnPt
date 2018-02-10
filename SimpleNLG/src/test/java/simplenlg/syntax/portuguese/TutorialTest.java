@@ -38,11 +38,11 @@ public class TutorialTest {
 		
 		Realiser r = new Realiser(lexicon);
 
-		NLGElement s1 = nlgFactory.createSentence("meu cachorro est· feliz");
+		NLGElement s1 = nlgFactory.createSentence("meu cachorro est√° feliz");
 		
 		String output = r.realiseSentence(s1);
 		
-		assertEquals("Meu cachorro est· feliz.", output);
+		assertEquals("Meu cachorro est√° feliz.", output);
 	 }
 	
 	/**
@@ -85,11 +85,11 @@ public class TutorialTest {
 
 		p.setFeature(Feature.TENSE, Tense.FUTURE); 
 		output = realiser.realiseSentence(p);
-		assertEquals("Mary perseguir· George.", output);
+		assertEquals("Mary perseguir√° George.", output);
 
 		p.setFeature(Feature.NEGATED, true); 
 		output = realiser.realiseSentence(p);
-		assertEquals("Mary n„o perseguir· George.", output);
+		assertEquals("Mary n√£o perseguir√° George.", output);
 
 		p = nlgFactory.createClause();
 		p.setSubject("Mary");
@@ -108,10 +108,10 @@ public class TutorialTest {
 		assertEquals("Quem Mary persegue?", output);
 
 		p = nlgFactory.createClause();
-		p.setSubject("o c„o");
+		p.setSubject("o c√£o");
 		p.setVerb("acordar");
 		output = realiser.realiseSentence(p);
-		assertEquals("O c„o acorda.", output);
+		assertEquals("O c√£o acorda.", output);
 
 	 }
 	
@@ -126,23 +126,23 @@ public class TutorialTest {
 		Realiser realiser = new Realiser(lexicon);
 		
 		AbstractSPhraseSpec p = nlgFactory.createClause();
-		p.setSubject("meu c„o");
+		p.setSubject("meu c√£o");
 		p.setVerb("ser");  // variant of be
 		p.setObject("George");
 		
 		String output = realiser.realiseSentence(p);
-		assertEquals("Meu c„o È George.", output);
+		assertEquals("Meu c√£o √© George.", output);
 		
 		p = nlgFactory.createClause();
-		p.setSubject("meu c„o");
+		p.setSubject("meu c√£o");
 		p.setVerb("perseguir");  // variant of chase
 		p.setObject("George");
 		
 		output = realiser.realiseSentence(p);
-		assertEquals("Meu c„o persegue George.", output);
+		assertEquals("Meu c√£o persegue George.", output);
 		
 
-		NPPhraseSpec cao = nlgFactory.createNounPhrase("o", "c„o");
+		NPPhraseSpec cao = nlgFactory.createNounPhrase("o", "c√£o");
 		cao.setFeature(Feature.NUMBER, NumberAgreement.PLURAL);
 		
 		AdjPhraseSpec feliz = nlgFactory.createAdjectivePhrase("feliz");
@@ -151,19 +151,19 @@ public class TutorialTest {
 		p.setSubject(cao);   // variant of "dog"
 		p.setVerb("estar");  // variant of be
 		p.setObject(feliz);  // variant of happy
-		assertEquals("Os c„es est„o felizes.", realiser.realiseSentence(p));
+		assertEquals("Os c√£es est√£o felizes.", realiser.realiseSentence(p));
 		
-		NPPhraseSpec crianÁa = nlgFactory.createNounPhrase("o", "crianÁa");
-		crianÁa.setFeature(Feature.NUMBER, NumberAgreement.PLURAL);
+		NPPhraseSpec crian√ßa = nlgFactory.createNounPhrase("o", "crian√ßa");
+		crian√ßa.setFeature(Feature.NUMBER, NumberAgreement.PLURAL);
 		
 		p = nlgFactory.createClause();
-		p.setSubject(crianÁa);   // variant of "child"
+		p.setSubject(crian√ßa);   // variant of "child"
 		p.setVerb("estar");  // variant of be
 		p.setObject(feliz);  // variant of happy
 		output = realiser.realiseSentence(p);
-		assertEquals("As crianÁas est„o felizes.", output);
+		assertEquals("As crian√ßas est√£o felizes.", output);
 
-		cao = nlgFactory.createNounPhrase("o", "c„o");
+		cao = nlgFactory.createNounPhrase("o", "c√£o");
 		feliz = nlgFactory.createAdjectivePhrase("feliz");
 		
 		// following functionality is enabled
@@ -172,7 +172,7 @@ public class TutorialTest {
 		p.setVerb("estar");  // variant of be
 		p.setObject(feliz);  // variant of happy
 		output = realiser.realiseSentence(p);
-		assertEquals("O c„o est· feliz.", output); //corrected automatically
+		assertEquals("O c√£o est√° feliz.", output); //corrected automatically
 	}
 		
 	/**
@@ -216,11 +216,11 @@ public class TutorialTest {
 
 		p.setFeature( Feature.TENSE, Tense.FUTURE ); 
 		output = realiser.realiseSentence( p );
-		assertEquals( "Mary perseguir· o macaco.", output );
+		assertEquals( "Mary perseguir√° o macaco.", output );
 
 		p.setFeature( Feature.NEGATED, true ); 
 		output = realiser.realiseSentence( p );
-		assertEquals( "Mary n„o perseguir· o macaco.", output );
+		assertEquals( "Mary n√£o perseguir√° o macaco.", output );
 
 		p = nlgFactory.createClause();
 		p.setSubject( "Mary" );
@@ -253,10 +253,10 @@ public class TutorialTest {
 		p.setVerb( "perseguir" );
 		p.setObject( "o macaco" );
 		p.addComplement( "muito rapidamente" );
-		p.addComplement( "apesar de sua exaust„o" );
+		p.addComplement( "apesar de sua exaust√£o" );
 		
 		String output = realiser.realiseSentence( p );
-		assertEquals( "Mary persegue o macaco muito rapidamente apesar de sua exaust„o.", output );
+		assertEquals( "Mary persegue o macaco muito rapidamente apesar de sua exaust√£o.", output );
 	 }
 	
 	/**
@@ -272,7 +272,7 @@ public class TutorialTest {
 		NPPhraseSpec subject = nlgFactory.createNounPhrase( "Mary" );
 		NPPhraseSpec object = nlgFactory.createNounPhrase( "o macaco" );
 		VPPhraseSpec verb = nlgFactory.createVerbPhrase( "perseguir" );
-		subject.addModifier( "r·pidamente" );
+		subject.addModifier( "r√°pidamente" );
 		
 		AbstractSPhraseSpec p = nlgFactory.createClause();
 		p.setSubject( subject );
@@ -280,7 +280,7 @@ public class TutorialTest {
 		p.setObject( object );
 		
 		String outputA = realiser.realiseSentence( p );
-		assertEquals( "Mary r·pidamente persegue o macaco.", outputA );
+		assertEquals( "Mary r√°pidamente persegue o macaco.", outputA );
 		
 		verb = nlgFactory.createVerbPhrase( "conseguir" );
 		verb.addComplement(nlgFactory.createVerbPhrase( "perseguir" ));
@@ -429,12 +429,12 @@ public class TutorialTest {
 		DocumentElement par1 = nlgFactory.createParagraph( Arrays.asList( s1, s2, s3 ) );
 		
 		String output14a = realiser.realise( par1 ).getRealisation();
-		assertEquals( "Mary persegue o macaco. O macaco luta. Mary est· nervosa.\n\n", output14a );
+		assertEquals( "Mary persegue o macaco. O macaco luta. Mary est√° nervosa.\n\n", output14a );
  
-		DocumentElement section = nlgFactory.createSection( "A provaÁ„o e afliÁ„o de Mary e do Macaco" );
+		DocumentElement section = nlgFactory.createSection( "A prova√ß√£o e afli√ß√£o de Mary e do Macaco" );
         section.addComponent( par1 );
         String output14b = realiser.realise( section ).getRealisation();
-        assertEquals( "A provaÁ„o e afliÁ„o de Mary e do Macaco\nMary persegue o macaco. O macaco luta. Mary est· nervosa.\n\n", output14b );
+        assertEquals( "A prova√ß√£o e afli√ß√£o de Mary e do Macaco\nMary persegue o macaco. O macaco luta. Mary est√° nervosa.\n\n", output14b );
 	}
 
 } 
